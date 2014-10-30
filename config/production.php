@@ -30,9 +30,9 @@ return [
     'db' => DI\factory(function($c){
         return [
             'driver'     => 'pdo_mysql',
-            'dbname'     => 'bolt_demo',
+            'dbname'     => 'bolt_try',
             'host'       => '127.0.0.1',
-            'user'       => 'bolt_demo',
+            'user'       => 'bolt_try',
             'password'   => getenv('APP_DB_PASSWORD')
         ];
     }),

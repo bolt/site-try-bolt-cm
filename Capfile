@@ -9,9 +9,8 @@ require 'capistrano/setup'
 require 'capistrano/docker'
 
 set :namespace,         "bolt"
-set :application,       "extensions"
+set :application,       "try"
 set :password,          "bolt30080"
-set :ports,             ["80"]
 set :stage,             "production" ### Default stage
 set :deploy_path,        "domains/try.bolt.cm/private_html_real"
 set :build_commands,    [
