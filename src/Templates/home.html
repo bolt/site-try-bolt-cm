@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+
+{% block intro %}
+    <div class="large-12 columns intro">  
+        <h3>Try Bolt, here and now in two simple steps</h3>
+        <form action="" method="post" id="demo-form">
+            {{form_row(form.title)}}
+            {{form_row(form.theme)}}
+            {{form_row(form.submit, {attr:{class:'small expand radius'}})}}
+        </form>
+    </div>  
+{% endblock %}
+
+{% block content %}
+    <div class="large-12 columns content theme-list">  
+        {% for theme in themes %}
+            <div class="theme">
+                <h3>{{theme.title}} <button class="right tiny theme-select" data-theme="{{theme.name}}">SELECT THEME</button></h3>
+                
+                    <ul class="screenshots" data-orbit> 
+                        {% for image in theme.screenshots%}
+                            {% if "//" in image %}
+                                <li><img src="{{image}}"></li>                    
+                            {% else %} 
+                                <li><img src="{{theme.source}}/blob/master/{{image}}?raw=true"></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if theme.screenshots is empty %}
+                            <li><img src="http://placehold.it/610x180/111111/FFFFFF&text=Image+Coming+Soon"></li>
+                        {% endif %}
+                    </ul>
+                
+            </div>
+        {% endfor %}
+    </div>  
+{% endblock %}

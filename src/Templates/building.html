@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+
+{% block intro %}
+    <div class="large-12 columns intro">  
+        <h3>Try Bolt, here and now in two simple steps</h3>
+        <p>
+            Once your site has finished launching you'll see a link in the status box.
+        </p>
+        <p>
+            The login for Bolt admin will be:<br>
+            <strong>Username:</strong> 'admin'<br>
+            <strong>Password:</strong> 'password'
+        </p>
+    </div>  
+{% endblock %}
+
+{% block content %}
+    <div class="large-12 columns content theme-list">  
+        <h3>Hold tight... we're just launching your site.</h3>
+        <p>
+            <div data-alert class="alert-box warning round text-center" data-demo="{{ demo.id }}" data-demo-building>
+                {{ demo.status|upper }}
+            </div>
+            
+            <div class="success-message">
+                <div data-alert class="alert-box success round text-center">
+                    Your Bolt Site is Ready!
+                </div>
+                <p>
+                    See the homepage here: <span class="live-url"><a href="#" target="_blank" class="button tiny radius">Launch the homepage</a></span><br>
+                    And access the admin here: <span class="live-url admin-url"><a href="#" target="_blank" class="button tiny radius">Launch the admin page</a></span>
+                </p>
+                
+            </div>
+        </p>
+    </div>  
+{% endblock %}

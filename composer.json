@@ -1,0 +1,38 @@
+{
+    "name": "bolt/demo",
+    "description": "A demo creator site to enable users to spin up a demo version of Bolt CMS",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ross Riley",
+            "email": "riley.ross@gmail.com"
+        }
+    ],
+    
+
+    "minimum-stability": "dev",
+    "require": {
+        "doctrine/orm": "2.5.*@dev",
+        "mnapoli/php-di": "4.3",
+        "rossriley/doctrine-migrations-helper": "1.0.*@dev",
+        "rossriley/stack-aura-router": "1.0.*@dev",
+        "stack/builder" : "1.0.*@dev",
+        "stack/url-map" : "1.0.*@dev",
+        "stack/run"     : "1.0.*@dev",
+        "stack/session": "1.0.*@dev",
+        "symfony/debug": "~2.5",
+        "symfony/form": "~2.5",
+        "symfony/process": "~2.5",
+        "symfony/twig-bridge": "~2.5",
+        "symfony/validator": "~2.5",
+        "twig/twig": "~1.1"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Bolt\\Demo\\": "src",
+            "Bolt\\Demo\\Tests\\": "tests"
+        }
+    }
+
+}
