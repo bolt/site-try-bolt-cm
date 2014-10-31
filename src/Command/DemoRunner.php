@@ -78,7 +78,7 @@ class DemoRunner extends Command {
             $output->writeln("<info>Built ".$demo->getTheme()." to ".$demo->getUrl()."</info>");
             $this->em->flush();
         } else {
-            $response = $process->getOutput(). "\n". $process->getErrorOutput();
+            $response = $command."\n".$process->getOutput(). "\n". $process->getErrorOutput();
             $demo->setStatus("failed");
             $demo->setUrl($response);
             $this->em->flush();
