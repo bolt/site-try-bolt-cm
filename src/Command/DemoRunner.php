@@ -63,7 +63,7 @@ class DemoRunner extends Command {
         $command = "ssh boltrunner@bolt.rossriley.co.uk 'cap production docker:run package=".$demo->getTheme()." version=dev-master theme=".$demo->getTheme()." title=".$demo->getTitle()."'";
         
         $process = new Process($command);
-        $process->run();
+        $process->mustRun();
         
         if ($process->isSuccessful()) {
             $response = $process->getOutput();
