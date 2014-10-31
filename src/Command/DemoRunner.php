@@ -79,6 +79,7 @@ class DemoRunner extends Command {
             $this->em->flush();
         } else {
             $demo->setStatus("failed");
+            $demo->setUrl($lines);
             $this->em->flush();
         }
         $this->isRunning = false;
