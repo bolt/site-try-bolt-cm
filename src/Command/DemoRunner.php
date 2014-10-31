@@ -60,7 +60,7 @@ class DemoRunner extends Command {
         $demo->setStatus("building");
         $this->em->flush();
         
-        $command = "ssh boltrunner@bolt.rossriley.co.uk 'cap production docker:run package=".$demo->getTheme()." version='\''*'\'' theme=".$demo->getTheme()." title=".$demo->getTitle()."'";
+        $command = "ssh boltrunner@bolt.rossriley.co.uk 'cap production docker:run package=".$demo->getTheme()." version=\'*\' theme=".$demo->getTheme()." title=".$demo->getTitle()."'";
         
         $process = new Process($command);
         $process->run();
@@ -78,7 +78,7 @@ class DemoRunner extends Command {
             $output->writeln("<info>Built ".$demo->getTheme()." to ".$demo->getUrl()."</info>");
             $this->em->flush();
         } else {
-            $demo->status = "failed";
+            $demo->setStatus("failed");
             $this->em->flush();
         }
         $this->isRunning = false;
