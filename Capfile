@@ -77,6 +77,7 @@ namespace :deploy do
     task :start do
         on roles :host do |host|
             begin execute "pkill -f 'try-bolt-start.sh'" rescue nil end 
+            begin execute "pkill -f 'demo-runner'" rescue nil end 
             execute "cd #{fetch(:deploy_path)}; ((nohup ./try-bolt-start.sh &>/dev/null) &)" 
         end
     end
