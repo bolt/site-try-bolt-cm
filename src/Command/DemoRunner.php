@@ -18,7 +18,7 @@ class DemoRunner extends Command {
 
     public $em;
     public $isRunning = false;
-    public $waitTime = 5;
+    public $waitTime = 2;
     public $protocol = "http://";
     
  
