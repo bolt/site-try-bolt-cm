@@ -10,6 +10,7 @@ class ThemeProvider
         $themes = [];
         foreach ($extensions['packages'] as &$ext) {
             if ($ext['type'] == 'bolt-theme') {
+                $ext['source'] = dirname($ext['source'])."/".basename($ext['source'], '.git');
                 $themes[] = $ext;
             }
         }
