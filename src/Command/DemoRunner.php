@@ -68,7 +68,7 @@ class DemoRunner extends Command {
         if ($process->isSuccessful()) {
             $response = $process->getOutput();
             $lines = explode("\n", $response);
-            if( !isset($lines[5])) {
+            if( !isset($lines[2])) {
                 // This means the container couldn't launch a new instance.
                 // Best bet here is to remain in waiting mode and try again next loop
                 $demo->setUrl($response);
@@ -76,7 +76,7 @@ class DemoRunner extends Command {
                 return;
             }
             $demo->setStatus("complete");
-            $demo->setUrl($this->protocol.$lines[5]);
+            $demo->setUrl($this->protocol.$lines[2]);
             $output->writeln("<info>Built ".$demo->getTheme()." to ".$demo->getUrl()."</info>");
             $this->em->flush();
         } else {
