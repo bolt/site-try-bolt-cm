@@ -71,6 +71,8 @@ class DemoRunner extends Command {
             if( !isset($lines[5])) {
                 // This means the container couldn't launch a new instance.
                 // Best bet here is to remain in waiting mode and try again next loop
+                $demo->setUrl($response);
+                $this->em->flush();
                 return;
             }
             $demo->setStatus("complete");
