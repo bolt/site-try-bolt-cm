@@ -6,7 +6,7 @@ class ThemeProvider
     
     public function getThemes()
     {
-        $extensions = json_decode(file_get_contents("http://extensions.bolt.cm/list.json"), true);
+        $extensions = json_decode(file_get_contents("http://extensions.bolt.cm/list/downloaded.json"), true);
         $themes = [];
         foreach ($extensions['packages'] as &$ext) {
             if ($ext['type'] == 'bolt-theme') {
