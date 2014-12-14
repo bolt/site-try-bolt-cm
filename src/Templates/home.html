@@ -2,22 +2,34 @@
 
 
 {% block intro %}
-    <div class="large-12 columns intro">  
-        <h3>Try Bolt, here and now in two simple steps</h3>
-        <form action="" method="post" id="demo-form">
-            {{form_row(form.title)}}
-            {{form_row(form.theme)}}
-            {{form_row(form.submit, {attr:{class:'small expand radius'}})}}
-        </form>
+    <div class="build-holder fixed">
+        <div class="large-12 columns intro">
+            <h3>Try Bolt, here and now in two simple steps</h3>
+            <form action="" method="post" id="demo-form">
+                {{form_row(form.title)}}
+                {{form_row(form.theme)}}
+                {{form_row(form.submit, {attr:{class:'small expand radius'}})}}
+            </form>
+        </div>
     </div>  
 {% endblock %}
 
 {% block content %}
-    <div class="large-12 columns content theme-list">  
-        {% for theme in themes %}
-            <div class="theme">
-                <h3>{{theme.title}} <button class="right tiny theme-select" data-theme="{{theme.name}}">SELECT THEME</button></h3>
-                
+    <div class="row">
+        <div class="large-8 columns content theme-list">      
+            {% for theme in themes %}
+                <div class="theme" data-magellan-destination="{{theme.name|replace({'/':''})}}">
+                    <h3>
+                        {{theme.title}} 
+                        <button class="right tiny theme-select" data-theme="{{theme.name}}">SELECT THEME</button>
+                    </h3>
+                    <a name="{{theme.name|replace({'/':''})}}"></a>
+                    {% if theme.authors %}
+                        <h6>by: {{theme.authors}}</h6>
+                    {% endif %}
+                    {% if theme.description %}
+                        <p>{{theme.description}}</p>
+                    {% endif %}
                     <ul class="screenshots" data-orbit> 
                         {% for image in theme.screenshots%}
                             {% if "//" in image %}
@@ -30,8 +42,22 @@
                             <li><img src="http://placehold.it/610x180/111111/FFFFFF&text=Image+Coming+Soon"></li>
                         {% endif %}
                     </ul>
-                
+                    
+                </div>
+            {% endfor %}
+        </div>
+        <div class="large-4 columns">
+            <div class="theme-nav">
+                <div data-magellan-expedition data-options="threshold:0;destination_threshold:-500;throttle_delay:50"> 
+                    <ul class="sub-nav">
+                        {% for theme in themes %}
+                            <li data-magellan-arrival="{{theme.name|replace({'/':''})}}">
+                                <a class="" href="#{{theme.name|replace({'/':''})}}">{{theme.title}}</a>
+                            </li> 
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-        {% endfor %}
-    </div>  
+        </div>
+    </div> 
 {% endblock %}
