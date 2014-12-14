@@ -10,6 +10,10 @@ body h1, body h2, body h3, body h4 {
     background-color: #F6350C;
 }
 
+.sub-nav li.active a {
+    background-color: #F6350C;
+}
+
 .fullwidth {
    width: 100%;
    margin-left: auto;
