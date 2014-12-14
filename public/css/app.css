@@ -10,8 +10,14 @@ body h1, body h2, body h3, body h4 {
     background-color: #F6350C;
 }
 
-.sub-nav li.active a {
+.sub-nav li.active a,
+.sub-nav li.active a:hover {
     background-color: #F6350C;
+}
+.sub-nav li.active a:hover,
+.button:hover,
+button:hover {
+    background-color: #C72707;
 }
 
 .fullwidth {
