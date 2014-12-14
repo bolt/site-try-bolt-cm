@@ -5,6 +5,10 @@ body {
 body h1, body h2, body h3, body h4 {
     font-family:Lato, Helvetica, sans-serif;
 }
+.button, button {
+    text-transform: uppercase;
+    background-color: #F6350C;
+}
 
 .fullwidth {
    width: 100%;
