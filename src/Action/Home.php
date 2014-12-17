@@ -39,6 +39,8 @@ class Home
            $this->em->flush();
            return new RedirectResponse($this->router->generate('build', ['demo'=>$demo->getId()])); 
         }
+        $t = $this->themes->getThemes();
+        print_r($t); exit;
         return new Response($this->renderer->render("home.html", ['form'=>$form->createView(), 'themes'=>$this->themes->getThemes()]));
 
     }

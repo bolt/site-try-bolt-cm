@@ -8,12 +8,18 @@ class ThemeProvider
     {
         $extensions = json_decode(file_get_contents("http://extensions.bolt.cm/list/downloaded.json"), true);
         $themes = [];
-        foreach ($extensions['packages'] as &$ext) {
+        $defaultKey = false;
+        foreach ($extensions['packages'] as $key=> &$ext) {
             if ($ext['type'] == 'bolt-theme') {
                 $ext['source'] = dirname($ext['source'])."/".basename($ext['source'], '.git');
-                $themes[] = $ext;
+                if($ext['name'] == "bolt/theme-2014") {
+                    array_unshift($themes, $ext);
+                } else {
+                    $themes[] = $ext;
+                }
             }
         }
+            
         return $themes;
     }
     
