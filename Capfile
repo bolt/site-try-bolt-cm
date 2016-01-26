@@ -29,9 +29,6 @@ namespace :deploy do
     task :secrets do
         on roles :web do
             upload! "config/env.php", "#{fetch(:deploy_to)}/config/env.php"
-            upload! "config/github", "#{fetch(:deploy_to)}/config/github"
-            upload! "config/github-config.json", "#{fetch(:deploy_to)}/config/github-config.json"
-            upload! "config/github.json", "#{fetch(:deploy_to)}/config/github.json"
         end
     end
 
