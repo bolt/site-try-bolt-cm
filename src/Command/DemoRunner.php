@@ -60,7 +60,7 @@ class DemoRunner extends Command {
         $demo->setStatus("building");
         $this->em->flush();
         
-        $command = "ssh boltrunner@bolt.rossriley.co.uk 'cap production docker:run package=".$demo->getTheme()." version=dev-master theme=".$demo->getTheme()." title=\"".$demo->getTitle()."\"'";
+        $command = "ssh boltrunner@bolt.rossriley.co.uk 'bundle exec cap production docker:run package=".$demo->getTheme()." version=dev-master theme=".$demo->getTheme()." title=\"".$demo->getTitle()."\"'";
         
         $process = new Process($command);
         $process->setTimeout(3600);
