@@ -1,5 +1,9 @@
 ## Try Bolt Application Repository
 
+This is an application that allows users to launch a test version of Bolt using a theme of their choice.
+
+The system currently powers http://try.bolt.cm
+
 ### How to get a development version running.
 
 After cloning this repo you'll need to setup a development DB connection. This app uses MySQL and the connection
