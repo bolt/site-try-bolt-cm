@@ -19,7 +19,7 @@ namespace :deploy do
 
     desc "Updates the code on the remote container"
     task :start do
-        on roles :host do |host|
+        on roles :web do |host|
             begin execute "pkill -f 'try-bolt-start.sh'" rescue nil end
             begin execute "pkill -f 'demo-runner'" rescue nil end
             execute "cd #{fetch(:deploy_path)}; ((nohup ./try-bolt-start.sh &>/dev/null) &)"
