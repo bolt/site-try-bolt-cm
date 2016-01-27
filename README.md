@@ -1,4 +1,4 @@
-## Try Bolt Application Repository
+## "Try Bolt" Application Repository
 
 This is an application that allows users to launch a test version of Bolt using a theme of their choice.
 
