@@ -12,7 +12,7 @@ set :composer_install_flags, '--no-dev --prefer-dist --no-interaction --quiet'
 
 task :production do
     set :branch,        "master"
-    server 'bolt.cm', user: 'bolt', roles: %w{web}
+    server 'try.bolt.cm', user: 'bolt', roles: %w{web}
 end
 
 namespace :deploy do
