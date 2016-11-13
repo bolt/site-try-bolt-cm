@@ -13,7 +13,7 @@ class ThemeProvider
         foreach ($extensions['packages'] as $key=> &$ext) {
             if ($ext['type'] == 'bolt-theme' ) {
                 $ext['source'] = dirname($ext['source'])."/".basename($ext['source'], '.git');
-                if($ext['name'] == "bolt/theme-2014") {
+                if($ext['name'] == "bolt/theme-2016") {
                     array_unshift($themes, $ext);
                 } else {
                     $themes[] = $ext;
