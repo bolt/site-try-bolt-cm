@@ -22,8 +22,8 @@ namespace :deploy do
         on roles :web do |host|
             begin execute "pkill -f 'try-bolt-start.sh'" rescue nil end
             begin execute "pkill -f 'demo-runner'" rescue nil end
-            execute "cd #{fetch(:deploy_path)}; chmod +x ./try-bolt-start.sh"
-            execute "cd #{fetch(:deploy_path)}; ((nohup ./try-bolt-start.sh &>/dev/null) &)"
+            execute "cd #{fetch(:deploy_to)} && chmod +x ./try-bolt-start.sh"
+            execute "cd #{fetch(:deploy_to)} && ((nohup ./try-bolt-start.sh &>/dev/null) &)"
         end
     end
 
