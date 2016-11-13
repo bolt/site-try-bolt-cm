@@ -17,7 +17,7 @@ use DI\ContainerBuilder;
 use Bolt\Demo\Application;
 
 
-Symfony\Component\Debug\Debug::enable();
+//Symfony\Component\Debug\Debug::enable();
 @include_once 'env.php';
 return [
 
