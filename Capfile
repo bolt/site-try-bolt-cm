@@ -3,7 +3,7 @@ require 'capistrano/setup'
 require 'capistrano/simpledeploy'
 
 set :application,   "bolt-try"
-set :deploy_to,     "domains/try.bolt.cm/private_html_real"
+set :deploy_to,     "/var/www/sites/try.bolt.cm"
 set :repo_url,      "git@github.com:bolt/try-bolt.git"
 set :stage,         "production" ### Default stage
 
