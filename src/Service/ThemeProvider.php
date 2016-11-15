@@ -6,7 +6,7 @@ class ThemeProvider
 
     public $blacklist = [
         'mikescops/bootstrapbolttheme',
-        'mikecops/cleanblog'
+        'mikescops/clean-blog'
     ];
     
     public function getThemes()
