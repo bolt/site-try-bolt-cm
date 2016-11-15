@@ -3,6 +3,11 @@ namespace Bolt\Demo\Service;
 
 class ThemeProvider
 {
+
+    public $blacklist = [
+        'mikescops/bootstrapbolttheme',
+        'mikecops/cleanblog'
+    ];
     
     public function getThemes()
     {
@@ -16,7 +21,9 @@ class ThemeProvider
                 if($ext['name'] == "bolt/theme-2016") {
                     array_unshift($themes, $ext);
                 } else {
-                    $themes[] = $ext;
+                    if (!in_array($ext['name'], $this->blacklist)) {
+                        $themes[] = $ext;
+                    }
                 }
             }
         }
