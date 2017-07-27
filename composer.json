@@ -10,22 +10,22 @@
     ],
     
 
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "doctrine/orm": "^2.5",
-        "mnapoli/php-di": "4.3",
+        "php-di/php-di": "^4.3",
         "rossriley/doctrine-migrations-helper": "^1.0",
         "rossriley/stack-aura-router": "^1.0",
         "stack/builder" : "^1.0",
         "stack/url-map" : "^1.0",
         "stack/run"     : "^1.0",
-        "stack/session": "^1.0",
-        "symfony/debug": "~2.5",
-        "symfony/form": "~2.5",
-        "symfony/process": "~2.5",
-        "symfony/twig-bridge": "~2.5",
-        "symfony/validator": "~2.5",
-        "twig/twig": "~1.1"
+        "stack/session": "^1.0@dev",
+        "symfony/debug": "^2.5",
+        "symfony/form": "^2.5",
+        "symfony/process": "^2.5",
+        "symfony/twig-bridge": "^2.5",
+        "symfony/validator": "^2.5",
+        "twig/twig": "^1.1"
     },
 
     "autoload": {
