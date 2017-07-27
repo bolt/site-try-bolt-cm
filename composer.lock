@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f54f0ed92209daf16fbded8a3f60363",
+    "content-hash": "59a8e6d3dd05b30b3cb49981f6794b4e",
     "packages": [
         {
             "name": "aura/router",
@@ -621,31 +621,37 @@
         },
         {
             "name": "doctrine/migrations",
-            "version": "v1.2.2",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "6b70c2c4484c02878743929bb3cd3fdbf41193a6"
+                "reference": "c81147c0f2938a6566594455367e095150547f72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/6b70c2c4484c02878743929bb3cd3fdbf41193a6",
-                "reference": "6b70c2c4484c02878743929bb3cd3fdbf41193a6",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/c81147c0f2938a6566594455367e095150547f72",
+                "reference": "c81147c0f2938a6566594455367e095150547f72",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "~2.2",
-                "php": ">=5.4.0",
+                "ocramius/proxy-manager": "^1.0|^2.0",
+                "php": "^5.5|^7.0",
                 "symfony/console": "~2.3|~3.0",
                 "symfony/yaml": "~2.3|~3.0"
             },
             "require-dev": {
                 "doctrine/coding-standard": "dev-master",
                 "doctrine/orm": "2.*",
+                "jdorn/sql-formatter": "~1.1",
                 "johnkary/phpunit-speedtrap": "~1.0@dev",
+                "mikey179/vfsstream": "^1.6",
                 "mockery/mockery": "^0.9.4",
                 "phpunit/phpunit": "~4.7",
-                "satooshi/php-coveralls": "0.6.*"
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "suggest": {
+                "jdorn/sql-formatter": "Allows to generate formatted SQL with the diff command."
             },
             "bin": [
                 "bin/doctrine-migrations"
@@ -653,7 +659,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "v1.1.x-dev"
+                    "dev-master": "v1.6.x-dev"
                 }
             },
             "autoload": {
@@ -685,7 +691,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2016-01-07T21:28:50+00:00"
+            "time": "2016-12-25T22:54:00+00:00"
         },
         {
             "name": "doctrine/orm",
@@ -806,30 +812,38 @@
             "time": "2014-11-20T16:49:30+00:00"
         },
         {
-            "name": "myclabs/php-enum",
-            "version": "1.5.2",
+            "name": "ocramius/package-versions",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/myclabs/php-enum.git",
-                "reference": "3ed7088cfd0a0e06534b7f8b0eee82acea574fac"
+                "url": "https://github.com/Ocramius/PackageVersions.git",
+                "reference": "51e867c70f0799790b3e82276875414ce13daaca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/php-enum/zipball/3ed7088cfd0a0e06534b7f8b0eee82acea574fac",
-                "reference": "3ed7088cfd0a0e06534b7f8b0eee82acea574fac",
+                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/51e867c70f0799790b3e82276875414ce13daaca",
+                "reference": "51e867c70f0799790b3e82276875414ce13daaca",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3"
+                "composer-plugin-api": "^1.0",
+                "php": "~7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
-                "squizlabs/php_codesniffer": "1.*"
+                "composer/composer": "^1.3",
+                "ext-zip": "*",
+                "phpunit/phpunit": "^5.4.7"
             },
-            "type": "library",
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PackageVersions\\Installer",
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "MyCLabs\\Enum\\": "src/"
+                    "PackageVersions\\": "src/PackageVersions"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -838,51 +852,53 @@
             ],
             "authors": [
                 {
-                    "name": "PHP Enum contributors",
-                    "homepage": "https://github.com/myclabs/php-enum/graphs/contributors"
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
                 }
             ],
-            "description": "PHP Enum implementation",
-            "homepage": "http://github.com/myclabs/php-enum",
-            "keywords": [
-                "enum"
-            ],
-            "time": "2017-06-28T16:24:08+00:00"
+            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+            "time": "2016-12-30T09:49:15+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
-            "version": "0.5.2",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/ProxyManager.git",
-                "reference": "0ac0eb3e8e04c7fa75caaf1a43c5405623abf8f5"
+                "reference": "e18ac876b2e4819c76349de8f78ccc8ef1554cd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/0ac0eb3e8e04c7fa75caaf1a43c5405623abf8f5",
-                "reference": "0ac0eb3e8e04c7fa75caaf1a43c5405623abf8f5",
+                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/e18ac876b2e4819c76349de8f78ccc8ef1554cd7",
+                "reference": "e18ac876b2e4819c76349de8f78ccc8ef1554cd7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
-                "zendframework/zend-code": ">2.2.5,<3.0"
+                "ocramius/package-versions": "^1.1.1",
+                "php": "^7.1.0",
+                "zendframework/zend-code": "^3.1.0"
             },
             "require-dev": {
+                "couscous/couscous": "^1.5.2",
                 "ext-phar": "*",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "1.5.*"
+                "humbug/humbug": "dev-master@DEV",
+                "nikic/php-parser": "^3.0.4",
+                "phpbench/phpbench": "^0.12.2",
+                "phpstan/phpstan": "^0.6.4",
+                "phpunit/phpunit": "^5.6.4",
+                "phpunit/phpunit-mock-objects": "^3.4.1",
+                "squizlabs/php_codesniffer": "^2.7.0"
             },
             "suggest": {
                 "ocramius/generated-hydrator": "To have very fast object to array to object conversion for ghost objects",
                 "zendframework/zend-json": "To have the JsonRpc adapter (Remote Object feature)",
                 "zendframework/zend-soap": "To have the Soap adapter (Remote Object feature)",
-                "zendframework/zend-stdlib": "To use the hydrator proxy",
                 "zendframework/zend-xmlrpc": "To have the XmlRpc adapter (Remote Object feature)"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.6.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -898,7 +914,7 @@
                 {
                     "name": "Marco Pivetta",
                     "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.com/"
+                    "homepage": "http://ocramius.github.io/"
                 }
             ],
             "description": "A library providing utilities to generate, instantiate and generally operate with Object Proxies",
@@ -910,33 +926,90 @@
                 "proxy pattern",
                 "service proxies"
             ],
-            "time": "2014-09-28T14:18:11+00:00"
+            "time": "2017-05-04T11:12:50+00:00"
         },
         {
-            "name": "php-di/php-di",
-            "version": "4.4.10",
+            "name": "php-di/invoker",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/PHP-DI/PHP-DI.git",
-                "reference": "cc10862b66267b6e6f793eda2867b0aef5b693be"
+                "url": "https://github.com/PHP-DI/Invoker.git",
+                "reference": "1f4ca63b9abc66109e53b255e465d0ddb5c2e3f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/cc10862b66267b6e6f793eda2867b0aef5b693be",
-                "reference": "cc10862b66267b6e6f793eda2867b0aef5b693be",
+                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/1f4ca63b9abc66109e53b255e465d0ddb5c2e3f7",
+                "reference": "1f4ca63b9abc66109e53b255e465d0ddb5c2e3f7",
                 "shasum": ""
             },
             "require": {
-                "container-interop/container-interop": "~1.0",
-                "doctrine/annotations": "~1.2",
-                "doctrine/cache": "~1.0",
-                "myclabs/php-enum": "~1.1",
-                "ocramius/proxy-manager": "~0.5",
-                "php": ">=5.3.3",
-                "php-di/phpdoc-reader": "~1.3"
+                "container-interop/container-interop": "~1.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "athletic/athletic": "~0.1.8",
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Invoker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Generic and extensible callable invoker",
+            "homepage": "https://github.com/PHP-DI/Invoker",
+            "keywords": [
+                "callable",
+                "dependency",
+                "dependency-injection",
+                "injection",
+                "invoke",
+                "invoker"
+            ],
+            "time": "2016-07-14T13:09:58+00:00"
+        },
+        {
+            "name": "php-di/php-di",
+            "version": "5.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHP-DI/PHP-DI.git",
+                "reference": "8ecded470bb0255c93f2996f78bb3b644c06599a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/8ecded470bb0255c93f2996f78bb3b644c06599a",
+                "reference": "8ecded470bb0255c93f2996f78bb3b644c06599a",
+                "shasum": ""
+            },
+            "require": {
+                "container-interop/container-interop": "~1.2",
+                "php": ">=5.5.0",
+                "php-di/invoker": "^1.3.2",
+                "php-di/phpdoc-reader": "^2.0.1",
+                "psr/container": "~1.0"
+            },
+            "provide": {
+                "container-interop/container-interop-implementation": "^1.0",
+                "psr/container-implementation": "^1.0"
+            },
+            "replace": {
+                "mnapoli/php-di": "*"
+            },
+            "require-dev": {
+                "doctrine/annotations": "~1.2",
+                "doctrine/cache": "~1.4",
+                "mnapoli/phpunit-easymock": "~0.2.0",
+                "ocramius/proxy-manager": "~1.0|~2.0",
+                "phpunit/phpunit": "~4.5"
+            },
+            "suggest": {
+                "doctrine/annotations": "Install it if you want to use annotations (version ~1.2)",
+                "doctrine/cache": "Install it if you want to use the cache (version ~1.4)",
+                "ocramius/proxy-manager": "Install it if you want to use lazy injection (version ~1.0 or ~2.0)"
             },
             "type": "library",
             "autoload": {
@@ -951,49 +1024,51 @@
             "license": [
                 "MIT"
             ],
-            "description": "PHP-DI is a Container that makes Dependency Injection as practical as possible in PHP",
-            "homepage": "http://mnapoli.github.com/PHP-DI/",
+            "description": "The dependency injection container for humans",
+            "homepage": "http://php-di.org/",
             "keywords": [
                 "container",
                 "dependency injection",
                 "di"
             ],
-            "time": "2015-07-24T09:21:24+00:00"
+            "time": "2017-04-11T19:42:20+00:00"
         },
         {
             "name": "php-di/phpdoc-reader",
-            "version": "1.3.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/PhpDocReader.git",
-                "reference": "8a6e123fd1ce54f7fcbd71747b3bf04e465da229"
+                "reference": "83f5ead159defccfa8e7092e5b6c1c533b326d68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PhpDocReader/zipball/8a6e123fd1ce54f7fcbd71747b3bf04e465da229",
-                "reference": "8a6e123fd1ce54f7fcbd71747b3bf04e465da229",
+                "url": "https://api.github.com/repos/PHP-DI/PhpDocReader/zipball/83f5ead159defccfa8e7092e5b6c1c533b326d68",
+                "reference": "83f5ead159defccfa8e7092e5b6c1c533b326d68",
                 "shasum": ""
             },
             "require": {
-                "doctrine/annotations": "1.*",
                 "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.6"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "PhpDocReader": "src/",
-                    "UnitTest": "tests/"
+                "psr-4": {
+                    "PhpDocReader\\": "src/PhpDocReader"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
+            "description": "PhpDocReader parses @var and @param values in PHP docblocks (supports namespaced class names with the same resolution rules as PHP)",
             "keywords": [
                 "phpdoc",
                 "reflection"
             ],
-            "time": "2014-08-21T08:20:45+00:00"
+            "time": "2015-11-29T10:34:25+00:00"
         },
         {
             "name": "pimple/pimple",
@@ -2636,26 +2711,27 @@
         },
         {
             "name": "zendframework/zend-code",
-            "version": "2.6.3",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-code.git",
-                "reference": "95033f061b083e16cdee60530ec260d7d628b887"
+                "reference": "02944646c109fa53b6b6ab8b5269bb080fcdf5b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/95033f061b083e16cdee60530ec260d7d628b887",
-                "reference": "95033f061b083e16cdee60530ec260d7d628b887",
+                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/02944646c109fa53b6b6ab8b5269bb080fcdf5b4",
+                "reference": "02944646c109fa53b6b6ab8b5269bb080fcdf5b4",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5 || 7.0.0 - 7.0.4 || ^7.0.6",
+                "php": "^7.1",
                 "zendframework/zend-eventmanager": "^2.6 || ^3.0"
             },
             "require-dev": {
                 "doctrine/annotations": "~1.0",
-                "fabpot/php-cs-fixer": "1.7.*",
-                "phpunit/phpunit": "^4.8.21",
+                "ext-phar": "*",
+                "phpunit/phpunit": "^6.2.3",
+                "zendframework/zend-coding-standard": "^1.0.0",
                 "zendframework/zend-stdlib": "^2.7 || ^3.0"
             },
             "suggest": {
@@ -2665,8 +2741,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev",
-                    "dev-develop": "2.7-dev"
+                    "dev-master": "3.2-dev",
+                    "dev-develop": "3.3-dev"
                 }
             },
             "autoload": {
@@ -2684,7 +2760,7 @@
                 "code",
                 "zf2"
             ],
-            "time": "2016-04-20T17:26:42+00:00"
+            "time": "2017-07-23T13:06:00+00:00"
         },
         {
             "name": "zendframework/zend-eventmanager",

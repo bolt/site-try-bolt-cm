@@ -13,7 +13,7 @@
     "minimum-stability": "stable",
     "require": {
         "doctrine/orm": "^2.5",
-        "php-di/php-di": "^4.3",
+        "php-di/php-di": "^5.0",
         "rossriley/doctrine-migrations-helper": "^1.0",
         "rossriley/stack-aura-router": "^1.0",
         "stack/builder" : "^1.0",
